@@ -5,8 +5,8 @@
   </head>
   <body>
     <h1>Blog index</h1>
-	<?php include '_csvconvert.php'; ?>
-	<?php include_once "_markdown.php"; ?>
+	<?php include 'include/_csvconvert.php'; ?>
+	<?php include_once "include/_markdown.php"; ?>
 	<?php
 	foreach (json_decode($json) as $data) {
 	  echo '<h2>'.$data->title.'</h2>';
