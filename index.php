@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php include_once "include/_settings.php"; ?>
-<?php include 'include/_csvconvert.php'; ?>
+<?php include_once 'include/_csvconvert.php'; ?>
 <?php include_once "include/_markdown.php"; ?>
 <html>
   <head>
