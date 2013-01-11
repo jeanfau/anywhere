@@ -1,8 +1,6 @@
 <?php
 /*
  * Converts CSV to JSON
- * Example uses Google Spreadsheet CSV feed
- * csvToArray function I think I found on php.net
  */
 
 // Set your CSV feed
