@@ -29,6 +29,8 @@
           $file = $_GET['file'];
           viewFile($file); 
           ?>
+          <hr>
+          <p style="text-align:right; color: #BBB; font-size: 0.9em;"><a href="<?php echo "posts/".$file; ?>">View TXT source</a> &bull; <a>JSON</a></p>
 	    </div>
 	  </div>
 	</div>
