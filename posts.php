@@ -24,51 +24,14 @@
     </div>
 	<div class="container" style="margin-top:60px;">
 	  <div class="row">
-	  <div class="span12">
-
-
-<?php
-   // create a handler to the directory
-    $dirhandler = opendir('posts/');
- 
-    // read all the files from directory
-    $nofiles=0;
-    while ($file = readdir($dirhandler)) {
- 
-        // if $file isn't this directory or its parent 
-        //add to the $files array
-        if ($file != '.' && $file != '..')
-        {
-			$nofiles++;
-			$files[$nofiles]=$file;                
-        }   
-    }
- 
-    //close the handler
-    closedir($dirhandler);  ?>
-
-<pre><?php print_r($files); ?></pre>
-
-<?php
-foreach ($files as $file) {
- echo("<a href='posts.php?file=".$file."'>".$file."</a></br>");
-}
-?>
-
+	    <div class="span12">
 <?php
 
-foreach ($files as $file) {
-
-$file = file_get_contents('posts/'.$file);
-echo Markdown(nl2br($file));
-echo("<hr>");
-
-}
+$file = $_GET['file'];
+ viewPost($file); 
 
 ?>
-
-
-	  </div>
+	    </div>
 	  </div>
 	</div>
   </body>

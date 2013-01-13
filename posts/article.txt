@@ -1,0 +1,8 @@
+title: Titre de l'article
+----
+author: Auteur de l'article
+----
+date: 21 décembre 2012
+----
+
+article content
