@@ -25,12 +25,10 @@
 	<div class="container" style="margin-top:60px;">
 	  <div class="row">
 	    <div class="span12">
-<?php
-
-$file = $_GET['file'];
- viewPost($file); 
-
-?>
+          <?php
+          $file = $_GET['file'];
+          viewFile($file); 
+          ?>
 	    </div>
 	  </div>
 	</div>

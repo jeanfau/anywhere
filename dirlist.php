@@ -24,7 +24,7 @@
 	<div class="container" style="margin-top:60px;">
 	  <div class="row">
 	  <div class="span12">
-		<h4>Files in <code>post/</code> directory</h4>
+		<h4>Files in <code>post/</code> directory:</h4>
 		<?php
 		 if ($handle = opendir('posts/')) {
 		  while (false !== ($entry = readdir($handle))) {
@@ -34,8 +34,33 @@
 		  }
 		
 		  closedir($handle);
-		 } 
-		?>
+		 } ?>
+
+<hr>
+
+<h4>Debug:</h4>
+
+<?php
+   // create a handler to the directory
+    $dirhandler = opendir('posts/');
+ 
+    // read all the files from directory
+    $nofiles=0;
+    while ($file = readdir($dirhandler)) {
+ 
+        // if $file isn't this directory or its parent 
+        //add to the $files array
+        if ($file != '.' && $file != '..')
+        {
+			$nofiles++;
+			$files[$nofiles]=$file;                
+        }   
+    }
+ 
+    //close the handler
+    closedir($dirhandler);  ?>
+
+<pre><?php print_r($files); ?></pre>
 	  </div>
 	  </div>
 	</div>

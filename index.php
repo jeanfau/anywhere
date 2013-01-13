@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php include_once "include/_settings.php"; ?>
-<?php include_once 'include/_csvconvert.php'; ?>
-<?php include_once "include/_markdown.php"; ?>
 <?php include_once "include/_functions.php"; ?>
+<?php include_once "include/_markdown.php"; ?>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -45,27 +44,18 @@
     }
  
     //close the handler
-    closedir($dirhandler);  ?>
-
-<pre><?php print_r($files); ?></pre>
-
-<?php
-foreach ($files as $file) {
- echo("<a href='posts.php?file=".$file."'>".$file."</a></br>");
-}
+    closedir($dirhandler);
 ?>
 
 <?php
-
 foreach ($files as $file) {
-
-$file = file_get_contents('posts/'.$file);
-echo Markdown(nl2br($file));
-echo("<hr>");
-
+ echo("<h3><a href='view.php?file=".$file."'>".$file."</a></h3>");
+ $content = file_get_contents('posts/'.$file);
+ echo Markdown(nl2br($content));
+ echo("<hr>");
 }
-
 ?>
+
 
 
 	  </div>
