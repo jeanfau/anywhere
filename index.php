@@ -49,10 +49,13 @@
 
 <?php
 foreach ($files as $file) {
- echo("<h3><a href='view.php?file=".$file."'>".$file."</a></h3>");
- $content = file_get_contents('posts/'.$file);
- echo Markdown(nl2br($content));
- echo("<hr>");
+getMeta($file);
+echo "<h3><a href='view.php?file=".$file."'>".$file_title."</a> <small>(".$file.")</small></h3>";
+echo $file_author."<br>";
+echo $file_date."<br><br>";
+$content = file_get_contents('posts/'.$file);
+echo Markdown(nl2br($content));
+echo("<hr>");
 }
 ?>
 
