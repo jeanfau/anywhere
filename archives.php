@@ -25,11 +25,13 @@
 	  <div class="row">
 	    <div class="span12">
           <?php
-          $file = $_GET['file'];
-          viewFile($file); 
+          $date = $_GET['date'];
+          if (empty($date)) {
+		    viewArchives();
+		  } else {
+		    viewArchives($date)
+		  }
           ?>
-          <hr>
-          <p style="text-align:right; color: #BBB; font-size: 0.9em;"><a href="<?php echo "posts/".$file; ?>">View TXT source</a> &bull; <a>JSON</a></p>
 	    </div>
 	  </div>
 	</div>
