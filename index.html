@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+	<link href="css/prettify.css" rel="stylesheet">
+	<script src="js/prettify.js"></script>
 	<style type="text/css">
       body {
         padding-top: 20px;
@@ -47,9 +49,7 @@
       }
     </style>
   </head>
-  <body>
-     <body>
-
+  <body onload="prettyPrint()">
     <div class="container-narrow">
 
       <div class="masthead">
@@ -107,18 +107,33 @@
 
       <hr>
 	  
-	  <pre class="prettyprint linenums">$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages</pre>
+	  <h2 style="text-align: center;">API Inside</h2>
+	  <p class="lead" style="text-align: center;">Automatic JSON and XML API</p>
 	  
-	  <hr>
+	  <h3>JSON</h3>
+	  <p><b>Ressource url:</b><p>
+	  <code>http://example.com/documentatio/json.php?path=content/doc.txt</code>
 	  
-	  	    <div class="row-fluid">
-          <i class="icon-quote-left icon-3x pull-left icon-muted"></i>
-          <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
-		  <p class="muted" style="text-align: right;">- Antoine de Saint-Exupéry in <i>Wind, Sand and Stars</i></p>
-        </div>
-		
+	  <p><b>Example response:</b></p>
+	  <pre class="prettyprint">[{
+  "file": {
+    "content": "title: Title\n----\ncontent",
+    "response_time": "0.0194"
+  }
+}]</pre>
+
+      <h3>XML</h3>
+	  <p><b>Ressource url:</b><p>
+	  <code>http://example.com/documentatio/xml.php?path=content/doc.txt</code>
+	  
+	  <p><b>Example response:</b></p>
+	  <pre class="prettyprint">&lt;file&gt;
+  &lt;content&gt;title: Title
+----
+content&lt;/content&gt;
+  &lt;response_time&gt;0.0194&lt;/response_time&gt;
+&lt;/file&gt;</pre>
+
 	  <hr>
 
       <div class="footer">
