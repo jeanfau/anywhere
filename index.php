@@ -1,63 +1,48 @@
 <!DOCTYPE html>
-<?php include_once "include/_settings.php"; ?>
-<?php include_once "include/_functions.php"; ?>
-<?php include_once "include/_markdown.php"; ?>
+<?php
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$start = $time;
+?>
+<?php include_once "include/_includes.php"; ?>
 <html>
   <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
     <title><?php echo $site_name ?></title>
 	<meta name="description" content="<?php echo $site_description ?>">
 	<meta name="author" content="<?php echo $site_author ?>">
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<script src="js/smooth.pack.js"></script>
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-	    <div class="container">
-          <a class="brand" href="/"><?php echo $site_name ?></a>
-          <ul class="nav">
-            <li><a href="#">Rss</a></li>
-          </ul>
-        </div>
-	  </div>
-    </div>
-	<div class="container" style="margin-top:60px;">
+	<div class="container">
 	  <div class="row">
 	  <div class="span12">
+	    <div class="page-header">
+  		  <h1><?php echo $site_name ?> <small><?php echo $site_description ?></small></h1>
+	    </div>
+		<h3>Summary</code></h3>
+		  <ul>
+		    <?php getDirectory("posts"); ?>
+		  </ul>
+		  
+		
 
 
+<hr>
+
+<p style="text-align: right;" class="muted">&copy; <?php echo date("Y"); ?> <?php echo $site_name; ?> &bull; Powered by <a href="http://jeanfau.github.com/anywhere/">documentat.io</a></p>
 <?php
-   // create a handler to the directory
-    $dirhandler = opendir('posts/');
- 
-    // read all the files from directory
-    $nofiles=0;
-    while ($file = readdir($dirhandler)) {
- 
-        // if $file isn't this directory or its parent 
-        //add to the $files array
-        if ($file != '.' && $file != '..')
-        {
-			$nofiles++;
-			$files[$nofiles]=$file;                
-        }   
-    }
- 
-    //close the handler
-    closedir($dirhandler);
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$finish = $time;
+$total_time = round(($finish - $start), 4);
+echo "<p style='text-align: right; font-size: 0.9em;' class='muted'>Page generated in $total_time seconds</p>";
 ?>
 
-<?php
-foreach ($files as $file) {
-getMeta($file);
-echo "<h3><a href='view.php?file=".$file."'>".$file_title."</a> <small>(".$file.")</small></h3>";
-echo $file_author."<br>";
-echo $file_date."<br><br>";
-$content = file_get_contents('posts/'.$file);
-echo Markdown(nl2br($content));
-echo("<hr>");
-}
-?>
 
 
 

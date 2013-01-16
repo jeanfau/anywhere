@@ -1,0 +1,16 @@
+title: Titre de l'article
+----
+author: Auteur de l'article
+----
+date: 21 décembre 2012
+----
+
+#titre
+##sous titre
+###encore plus
+
+>citation
+>encore  
+
+
+test
