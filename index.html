@@ -115,12 +115,16 @@
 	  <code>http://example.com/documentatio/json.php?path=content/doc.txt</code>
 	  
 	  <p><b>Example response:</b></p>
-	  <pre class="prettyprint">[{
-  "file": {
-    "content": "title: Title\n----\ncontent",
-    "response_time": "0.0194"
-  }
-}]</pre>
+	  <pre class="prettyprint">{
+   "file":{
+      "title":"Title",
+      "content":"\ufefftitle: Titre de l'article\n----\nauthor: Auteur de l'article\n----\ndate: 21 d\u00e9cembre 2012\n----\narticle content success"
+   },
+   "meta":{
+      "size":119,
+      "response_time":"0.0023"
+   }
+}</pre>
 
       <h3>XML</h3>
 	  <p><b>Ressource url:</b><p>
