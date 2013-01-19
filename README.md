@@ -1,4 +1,0 @@
-@nywhere
-========
-
-Proof of concept
