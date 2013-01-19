@@ -3,17 +3,13 @@
 $format = $_GET['format'];
 
 if (empty($format)) {
-  //normal view
-  include_once "app/view/html.php";
+  include_once "app/view/html.inc.php";
 } elseif ($format == json) {
-  //json
-  include_once "app/view/json.php";
+  include_once "app/view/json.inc.php";
 } elseif ($format == xml) {
-  //xml
-  include_once "app/view/xml.php";
+  include_once "app/view/xml.inc.php";
 } elseif ($format == pdf) {
-  //pdf
-  include_once "app/view/pdf.php";
+  include_once "app/view/pdf.inc.php";
 }
 
 ?>

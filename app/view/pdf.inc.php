@@ -1,5 +1,5 @@
 <?php
-require('include/class/fpdf/fpdf.php');
+require('app/include/class/fpdf/fpdf.php');
 
 $filePath = $_GET['path'];
 $content = file_get_contents($filePath);

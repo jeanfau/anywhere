@@ -5,7 +5,7 @@ $time = explode(' ', $time);
 $time = $time[1] + $time[0];
 $start = $time;
 ?>
-<?php include_once "include/_includes.php"; ?>
+<?php include_once "app/include/_includes.php"; ?>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -53,9 +53,9 @@ $start = $time;
 		<div class="span6">
           <div class="btn-group" style="float: left;">
             <a class="btn btn-mini" href="<?php echo $filePath; ?>">txt</a>s</a>
-			<a class="btn btn-mini" href="pdf.php?path=<?php echo $filePath; ?>">pdf</a>
-            <a class="btn btn-mini" href="json.php?path=<?php echo $filePath; ?>">json</a>
-            <a class="btn btn-mini" href="xml.php?path=<?php echo $filePath; ?>">xml</a>
+			<a class="btn btn-mini" href="view.php?path=<?php echo $filePath; ?>&format=pdf">pdf</a>
+            <a class="btn btn-mini" href="view.php?path=<?php echo $filePath; ?>&format=json">json</a>
+            <a class="btn btn-mini" href="view.php?path=<?php echo $filePath; ?>&format=xml">xml</a>
           </div>
 		</div>
 		<div class="span6">

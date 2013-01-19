@@ -5,7 +5,7 @@ $time = explode(' ', $time);
 $time = $time[1] + $time[0];
 $start = $time;
 ?>
-<?php include_once "include/_includes.php"; ?>
+<?php include_once "app/include/_includes.php"; ?>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@ $start = $time;
 	    </div>
 		<h3>Summary</code></h3>
 		  <ul>
-		    <?php getDirectory("posts"); ?>
+		    <?php getDirectory("content"); ?>
 		  </ul>
 		  
 		
