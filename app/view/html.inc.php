@@ -42,6 +42,8 @@ $start = $time;
       </ul>
 	  <div class="row">
 	    <div class="span12">
+	    
+	    <pre><?php print_r(getFileContent($filePath)); ?></pre>
           <?php
           $filePath = $_GET['path'];
           viewFile($filePath); 

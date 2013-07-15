@@ -35,6 +35,12 @@ function getFileTitle($file) {
   return $file_title;
 }
 
+function getFileContent($file) { 
+  $content = file_get_contents($file);
+  preg_match_all("/(?:.*): (.*)\n/", $content, $matches);
+  return $matches;
+}
+
 function getFileAuthor($file) { 
   $content = file_get_contents($file);
   preg_match_all("/(?:.*): (.*)\n/", $content, $matches);
@@ -47,8 +53,8 @@ function getDirectory( $path = '-', $level = 0 ){
   $dh = @opendir($path); 
   while(false !== ($file = readdir($dh))) { // Loop through the directory
         if (!in_array($file, $ignore)) { 
-            $before = str_repeat('<ul>', $level);
-			$after = str_repeat('</ul>', $level);			
+            $before = str_repeat('<li><ul>', $level);
+			$after = str_repeat('</ul></li>', $level);			
             if (is_dir( "$path/$file" )) { 
                 echo "$before<li><strong>$file/</strong></li>$after\n";
                 getDirectory( "$path/$file", ($level+1) ); 
@@ -56,7 +62,30 @@ function getDirectory( $path = '-', $level = 0 ){
 				$filePath = $path.'/'.$file; 
 				$fileTitle = getFileTitle($filePath);
 				$fileSize = filesize($filePath);
-				echo "$before<li><a href='view.php?path=$filePath'>$fileTitle</a> <span class='muted' style='margin-left:10px;'>($file, level $level, $fileSize bytes)</span></li>$after\n";
+				$fileModif = date ("F d Y H:i:s.", filemtime($filePath));
+				echo "$before<li><a href='view.php?path=$filePath'>$fileTitle</a> <span class='muted' style='margin-left:10px;'>($file, level $level, $fileSize bytes, $fileModif)</span></li>$after\n";
+            } 
+        } 
+    } 
+    closedir( $dh ); // Close the directory handle
+}
+
+function export ($path = '-') { 
+  $ignore = array('cgi-bin', '.', '..'); 
+  $dh = @opendir($path); 
+  while(false !== ($file = readdir($dh))) { // Loop through the directory
+        if (!in_array($file, $ignore)) { 			
+            if (is_dir( "$path/$file" )) { 
+                echo "<h1>$file</h1><hr>";
+                export( "$path/$file", ($level+1) ); 
+            } else { // Print out the filename 
+				$filePath = $path.'/'.$file; 
+				$fileTitle = getFileTitle($filePath);
+				$fileSize = filesize($filePath);
+				$fileModif = date ("F d Y H:i:s.", filemtime($filePath));
+				echo "<h2>$fileTitle</h2>\n";
+				echo(viewFile($filePath));
+				echo("<hr>");
             } 
         } 
     } 

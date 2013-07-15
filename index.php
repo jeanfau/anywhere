@@ -28,8 +28,7 @@ $start = $time;
 		    <?php getDirectory("content"); ?>
 		  </ul>
 		  
-		
-
+	
 
 <hr>
 
